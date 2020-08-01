@@ -1,41 +1,51 @@
-// initialize our canvas context & size
+// grab out assets
+
+const IMAGE_ONE = document.querySelector('#player-one');
+const IMAGE_TWO = document.querySelector('#player-two')
+
+// initialize our canvas context
 
 let canvas = document.getElementById("gameScreen");
 let ctx = canvas.getContext("2d");
 
+// set our game size variables
+
 const GAME_WIDTH = 800;
 const GAME_HEIGHT = 600;
-const GAME_MARGIN = 20;
+const GAME_MARGIN = 50;
+
+// initialize game objects
+
+new InputHandler();
 
 ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
 
-class Player {
-    constructor(gameWidth, gameHeight, gameMargin, side) {
-        this.width = 50;
-        this.height = 50;
-        this.gameMargin = gameMargin;
-        this.side = side;
-        if (this.side === 'left') {
-            this.position = {
-                x: gameMargin,
-                y: gameMargin
-            }
-        } else if (this.side === 'right') {
-            this.position = {
-                x: gameWidth - this.width - gameMargin,
-                y: gameHeight - this.height - gameMargin
-            }
-        }
-    }
-    draw(ctx) {
-        ctx.fillRect(this.position.x, this.position.y, this.width, this.height); 
-    }
+let Player_One = new Player(GAME_WIDTH, GAME_HEIGHT, GAME_MARGIN, 1, IMAGE_ONE);
+
+Player_One.draw(ctx); 
+
+let Player_Two = new Player(GAME_WIDTH, GAME_HEIGHT, GAME_MARGIN, 2, IMAGE_TWO);
+
+Player_Two.draw(ctx); 
+
+// start our game loop
+
+let lastTime = 0; 
+
+const gameLoop = (timeStamp) => {
+
+    let deltaTime = timeStamp - lastTime;
+    lastTime = timeStamp;
+
+    ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+
+    Player_One.update(deltaTime);
+    Player_One.draw(ctx);
+
+    Player_Two.update(deltaTime);
+    Player_Two.draw(ctx);
+
+    requestAnimationFrame(gameLoop);
 }
 
-let player_one = new Player(GAME_WIDTH, GAME_HEIGHT, GAME_MARGIN, 'left');
-
-player_one.draw(ctx); 
-
-let player_two = new Player(GAME_WIDTH, GAME_HEIGHT, GAME_MARGIN, 'right');
-
-player_two.draw(ctx); 
+requestAnimationFrame(gameLoop);

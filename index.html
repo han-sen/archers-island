@@ -11,6 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="css/style.css">
     </head>
+
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
@@ -19,10 +20,17 @@
         <header>
             <h1>Dueling Islands</h1>
         </header>
+
         <main>
             <canvas id="gameScreen" width="800" height="600"></canvas>
         </main>
 
+        <img id="player-one" src="./assets/img/player_one.gif">
+        <img id="player-two" src="./assets/img/player_two.gif">
+
+        <script src="./js/input.js" defer></script>
+        <script src="./js/player.js" defer></script>
         <script src="./js/app.js" defer></script>
     </body>
+    
 </html>
