@@ -22,22 +22,11 @@ const GAME_BG_COLOR = '#333f58';
 
 new InputHandler();
 
-// let Player_One = new Player(GAME_WIDTH, GAME_HEIGHT, GAME_MARGIN, 1, IMAGE_ONE);
-
-// Player_One.draw(ctx); 
-
-// let Player_Two = new Player(GAME_WIDTH, GAME_HEIGHT, GAME_MARGIN, 2, IMAGE_TWO);
-
-// Player_Two.draw(ctx); 
-
 let game = new Game(GAME_WIDTH, GAME_HEIGHT, GAME_MARGIN);
-
-// let goal = new Goal(GAME_WIDTH, GAME_HEIGHT, GAME_MARGIN, IMAGE_GOAL);
 
 // create empty array to hold any active projectiles
 
 const projectiles = [];
-
 
 // start our game loop
 
@@ -54,11 +43,9 @@ const gameLoop = (timeStamp) => {
     ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
 
     // draw the background
-    // ctx.fillStyle = GAME_BG_COLOR;
     ctx.drawImage(IMAGE_BACKGROUND, 0, 0, GAME_WIDTH, GAME_HEIGHT);
 
-    // draw goal
-
+    // draw all game objects
     game.update(deltaTime);
     game.draw(ctx);
 
@@ -77,11 +64,11 @@ const gameLoop = (timeStamp) => {
 
         el.update(deltaTime);
         el.draw(ctx);
+
     });
 
-    // console.log(projectiles);
-
     requestAnimationFrame(gameLoop);
+
 }
 
 requestAnimationFrame(gameLoop);

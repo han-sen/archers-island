@@ -2,6 +2,8 @@
 
 :root {
     --background-color: #333f58;
+    --highlight-warm: #FBBCAD;
+    --highlight-cool: #4a7a96;
 }
 
 body {
@@ -13,10 +15,12 @@ body {
 
 h1 {
     text-align: center;
+    color: var(--highlight-warm);
+    font-size: 3em;
 }
 
 canvas {
-    border: 2px dashed #4a7a96;
+    border: 2px solid var(--highlight-warm);
     box-shadow:
         0 2.8px 2.2px rgba(0, 0, 0, 0.02),
         0 6.7px 5.3px rgba(0, 0, 0, 0.028),
@@ -29,6 +33,7 @@ canvas {
 
 main {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -43,4 +48,13 @@ img {
     flex-direction: column;
     justify-content: center;
     height: 100vh;
+}
+
+.game_stats_wrap {
+    display: flex;
+    justify-content: space-around;
+}
+
+.game_stats_wrap p {
+    margin: 1em 3em;
 }

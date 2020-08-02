@@ -14,19 +14,22 @@ class Game {
         this.playerOne = new Player(gameWidth, gameHeight, gameMargin, 1, IMAGE_ONE);
         this.playerTwo = new Player(gameWidth, gameHeight, gameMargin, 2, IMAGE_TWO);
         this.goal = new Goal(gameWidth, gameHeight, gameMargin, IMAGE_GOAL)
-        this.gameObjects = [];
         this.round = 1;
         this.currentPlayer = 1;
     }
     draw(ctx) {
         if (this.currentPlayer === 1) {
             game.playerOne.draw(ctx);
+        } else if (this.currentPlayer === 2) {
+            game.playerTwo.draw(ctx);
         }
         game.goal.draw(ctx);
     }
     update(deltaTime) {
         if (this.currentPlayer === 1) {
             game.playerOne.update(deltaTime);
+        } else if (this.currentPlayer === 2) {
+            game.playerTwo.update(deltaTime);
         }
         game.goal.update(deltaTime);
     }
