@@ -3,21 +3,14 @@ class Player {
         this.size = 50;
         this.speed = 50;
         this.ammo = 3;
+        this.health = 3;
         this.gameWidth = gameWidth;
         this.gameHeight = gameHeight;
         this.gameMargin = gameMargin;
         this.playerNumber = playerNumber;
-        // if player 1, set origin to top left, if player 2 set origin to bottom right
-        if (this.playerNumber === 1) {
-            this.position = {
-                x: gameMargin,
-                y: gameMargin
-            }
-        } else {
-            this.position = {
-                x: gameWidth - this.size - gameMargin,
-                y: gameHeight - this.size - gameMargin
-            }
+        this.position = {
+            x: gameWidth - this.size - gameMargin * 2,
+            y: gameHeight / 2
         }
         this.image = image;
     }
@@ -32,11 +25,4 @@ class Player {
             this.speed = -this.speed;
         } 
     }
-    // shoot(ctx) {
-    //     // create a new Projectile
-    //     // pass it a position based on current y value
-    //     // pass it a direction to go
-    //     let projectile = new Projectile(1, { x: this.position.x, y: this.position.y }, IMAGE_PROJECTILE);
-    //     ctx.drawImage(projectile.image, projectile.position.x, projectile.position.y, projectile.size, projectile.size);
-    // }
 }
