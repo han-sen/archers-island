@@ -16,21 +16,25 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        
-        <header>
-            <h1>Dueling Islands</h1>
-        </header>
+        <div class="page_wrap">
+            <header>
+                <h1>Dueling Islands</h1>
+            </header>
 
-        <main>
-            <canvas id="gameScreen" width="800" height="600"></canvas>
-        </main>
+            <main>
+                <canvas id="gameScreen" width="800" height="600"></canvas>
+            </main>
+         </div>
 
+        <!-- load our images to reference in our canvas -->
         <img id="player-one" src="./assets/img/player_one.gif">
         <img id="player-two" src="./assets/img/player_two.gif">
-
+        <img id="projectile" src="./assets/img/projectile.png">
+        <!-- load our scripts -->
         <script src="./js/input.js" defer></script>
+        <script src="./js/projectile.js" defer></script>
         <script src="./js/player.js" defer></script>
         <script src="./js/app.js" defer></script>
     </body>
-    
+
 </html>

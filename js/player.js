@@ -1,13 +1,14 @@
 class Player {
     constructor(gameWidth, gameHeight, gameMargin, playerNumber, image) {
         // can be condensed to this.size if sprite remains square
-        this.width = 50;
-        this.height = 50;
-        this.speed = 50;
+        this.size = 50;
+        this.speed = 60;
+        this.ammo = 3;
         this.gameWidth = gameWidth;
         this.gameHeight = gameHeight;
         this.gameMargin = gameMargin;
         this.playerNumber = playerNumber;
+        // if player 1, set origin to top left, if player 2 set origin to bottom right
         if (this.playerNumber === 1) {
             this.position = {
                 x: gameMargin,
@@ -15,21 +16,27 @@ class Player {
             }
         } else {
             this.position = {
-                x: gameWidth - this.width - gameMargin,
-                y: gameHeight - this.height - gameMargin
+                x: gameWidth - this.size - gameMargin,
+                y: gameHeight - this.size - gameMargin
             }
         }
         this.image = image;
     }
     draw(ctx) {
-        ctx.drawImage(this.image, this.position.x, this.position.y, this.width, this.height); 
+        ctx.drawImage(this.image, this.position.x, this.position.y, this.size, this.size); 
     }
     update(deltaTime) {
         this.position.y += this.speed / deltaTime;
-        console.log(this.position.y);
-        if (this.position.y > this.gameHeight - this.gameMargin - this.height
-            || this.position.y < this.gameMargin) {
+        if (this.position.y + this.size > this.gameHeight - this.gameMargin || this.position.y < this.gameMargin) {
+            // reverse direction by setting speed to inverse of itself
             this.speed = -this.speed;
         } 
     }
-}    
+    // shoot(ctx) {
+    //     // create a new Projectile
+    //     // pass it a position based on current y value
+    //     // pass it a direction to go
+    //     let projectile = new Projectile(1, { x: this.position.x, y: this.position.y }, IMAGE_PROJECTILE);
+    //     ctx.drawImage(projectile.image, projectile.position.x, projectile.position.y, projectile.size, projectile.size);
+    // }
+}

@@ -13,8 +13,17 @@ canvas {
 main {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 img {
     display: none;
+}
+
+.page_wrap {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
 }
