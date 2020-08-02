@@ -1,7 +1,7 @@
 class Player {
     constructor(gameWidth, gameHeight, gameMargin, playerNumber, image) {
         this.size = 50;
-        this.speed = 60;
+        this.speed = 50;
         this.ammo = 3;
         this.gameWidth = gameWidth;
         this.gameHeight = gameHeight;

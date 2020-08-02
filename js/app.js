@@ -11,9 +11,9 @@ let ctx = canvas.getContext("2d");
 
 // set our game size variables
 
-const GAME_WIDTH = 800;
-const GAME_HEIGHT = 600;
-const GAME_MARGIN = 100;
+const GAME_WIDTH = canvas.getAttribute('width');
+const GAME_HEIGHT = canvas.getAttribute('height');
+const GAME_MARGIN = GAME_WIDTH / 10;
 
 // initialize game objects
 
@@ -54,6 +54,11 @@ const gameLoop = (timeStamp) => {
     Player_Two.draw(ctx);
 
     projectiles.forEach((el, index) => {
+
+        // check collision detection, if true remove this projectile
+        if (detectCollision(el, Player_One)) {
+            projectiles.splice(index, 1);
+        };
         el.update(deltaTime);
         el.draw(ctx);
 
@@ -61,8 +66,9 @@ const gameLoop = (timeStamp) => {
         if (el.position.x < 0 || el.position.x > GAME_WIDTH) {
             projectiles.splice(index, 1);
         }
-        console.log(projectiles);
     });
+
+    // console.log(projectiles);
 
     requestAnimationFrame(gameLoop);
 }

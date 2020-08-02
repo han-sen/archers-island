@@ -1,7 +1,7 @@
 class Projectile {
     constructor(owner, position, playerOffset, image) {
         this.size = 20;
-        this.speed = { x: 240, y: 5};
+        this.speed = { x: 300, y: 15};
         this.owner = owner;
         this.position = position;
         this.playerOffset = playerOffset;
