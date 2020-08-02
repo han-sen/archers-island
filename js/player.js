@@ -28,8 +28,8 @@ class Player {
         // add a slight delay before fire to simulate cannon fuse burning
         setTimeout(() => {
             let projectile = new Projectile( { x: this.position.x, y: this.position.y }, this.size, IMAGE_PROJECTILE );
-            projectiles.push(projectile);
-            player.ammo--;
+            game.projectiles.push(projectile);
+            this.ammo--;
         }, 250);
     }
 }

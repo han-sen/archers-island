@@ -1,7 +1,7 @@
 class Goal {
     constructor(gameWidth, gameHeight, gameMargin, image) {
         this.size = 32;
-        this.speed = { x: 30, y: 60 };
+        this.speed = { x: 40, y: 60 };
         this.gameWidth = gameWidth;
         this.gameHeight = gameHeight;
         this.gameMargin = gameMargin;

@@ -7,16 +7,9 @@ class InputHandler {
                     game.playerOne.shoot();
                     break;
                 case 27:
-                    this.togglePause();    
+                    game.togglePause();    
                     break;    
             }
         })
-    }
-    togglePause() {
-        if (GAME_RUNNING === false) {
-            GAME_RUNNING = true;
-        } else {
-            GAME_RUNNING = false;
-        }
     }
 }
