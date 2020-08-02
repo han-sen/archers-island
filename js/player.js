@@ -1,6 +1,5 @@
 class Player {
     constructor(gameWidth, gameHeight, gameMargin, playerNumber, image) {
-        // can be condensed to this.size if sprite remains square
         this.size = 50;
         this.speed = 60;
         this.ammo = 3;
@@ -27,6 +26,7 @@ class Player {
     }
     update(deltaTime) {
         this.position.y += this.speed / deltaTime;
+        // check to see if we have hit edge of game screen
         if (this.position.y + this.size > this.gameHeight - this.gameMargin || this.position.y < this.gameMargin) {
             // reverse direction by setting speed to inverse of itself
             this.speed = -this.speed;
