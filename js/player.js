@@ -3,7 +3,6 @@ class Player {
         this.size = 50;
         this.speed = 50;
         this.ammo = 3;
-        this.health = 3;
         this.gameWidth = gameWidth;
         this.gameHeight = gameHeight;
         this.gameMargin = gameMargin;
