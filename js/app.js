@@ -30,9 +30,9 @@ new InputHandler();
 
 // Player_Two.draw(ctx); 
 
-let game = new Game(GAME_WIDTH, GAME_HEIGHT);
+let game = new Game(GAME_WIDTH, GAME_HEIGHT, GAME_MARGIN);
 
-let goal = new Goal(GAME_WIDTH, GAME_HEIGHT, GAME_MARGIN, IMAGE_GOAL);
+// let goal = new Goal(GAME_WIDTH, GAME_HEIGHT, GAME_MARGIN, IMAGE_GOAL);
 
 // create empty array to hold any active projectiles
 
@@ -58,18 +58,15 @@ const gameLoop = (timeStamp) => {
     ctx.drawImage(IMAGE_BACKGROUND, 0, 0, GAME_WIDTH, GAME_HEIGHT);
 
     // draw goal
-    goal.update(deltaTime);
-    goal.draw(ctx);
 
-    // draw player
-    game.playerOne.update(deltaTime);
-    game.playerOne.draw(ctx);
+    game.update(deltaTime);
+    game.draw(ctx);
 
     // draw projectiles
     projectiles.forEach((el, index) => {
 
         // check collision detection, if true remove this projectile
-        if (detectCollision(el, goal)) {
+        if (detectCollision(el, game.goal)) {
             projectiles.splice(index, 1);
         };
 
