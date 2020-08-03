@@ -24,9 +24,17 @@ const updateStats = (target, value) => {
 
 const updateAllStats = () => {
     updateStats(display_player, game.currentPlayer.playerNumber);
-    updateStats(display_ammo, game.currentPlayer.ammo);
+    // updateStats(display_ammo, game.currentPlayer.ammo);
+    updateAmmo();
     updateStats(display_points, game.currentPlayer.score);
     updateStats(display_round, game.round);
+}
+
+const updateAmmo = () => {
+    display_ammo.innerHTML = '';
+    for (let i = 0; i < game.currentPlayer.ammo; i++) {
+        display_ammo.innerHTML += '¤';
+    }
 }
 
 // event handlers
@@ -43,7 +51,9 @@ document.addEventListener('keydown', event => {
             break;    
         // enter to start game
         case 13:
-            game.startGame();
+            if (game.gamestate !== GAMESTATE.GAMEOVER) {
+                game.startGame();
+            }
             break;
     }
 });

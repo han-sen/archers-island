@@ -71,8 +71,10 @@ class Game {
         }
     }
     checkWin(playerOne, playerTwo) {
-        // if at the end of a round, and one player has 3 or more points
-        if ( (this.turn === this.round * 2 && this.playerTwo.ammo === 0) && (playerOne >= 3 || playerTwo >= 3) ) {
+        // if at the end of a round, and one player has 3 or more points, and players are now tied
+        if ( (this.turn === this.round * 2 && this.playerTwo.ammo === 0) 
+            && (playerOne >= 3 || playerTwo >= 3) 
+            && (playerOne !== playerTwo) ){
             setTimeout(() => {
                 this.gamestate = GAMESTATE.GAMEOVER;
             }, 1000)
