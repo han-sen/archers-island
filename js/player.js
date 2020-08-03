@@ -3,6 +3,7 @@ class Player {
         this.size = 50;
         this.speed = 50;
         this.ammo = 3;
+        this.score = 0;
         this.gameWidth = gameWidth;
         this.gameHeight = gameHeight;
         this.gameMargin = gameMargin;
@@ -25,11 +26,26 @@ class Player {
         } 
     }
     shoot() {
-        // add a slight delay before fire to simulate cannon fuse burning
-        setTimeout(() => {
+            if (this.ammo <= 0) { return };
             let projectile = new Projectile( { x: this.position.x, y: this.position.y }, this.size, IMAGE_PROJECTILE );
             game.projectiles.push(projectile);
-            this.ammo--;
-        }, 250);
+            this.ammo -= 1;
+            this.checkRound();
+            updateStats(display_ammo, this.ammo);
+    }
+    checkRound () {
+        if (this.ammo <= 0) {
+            // add flash to stats wrap then remove
+            display_stats_wrap.classList.add('flash');
+            setTimeout(() => {
+                display_stats_wrap.classList.remove('flash');
+            }, 2000)
+            // slight delay to let any active projectiles finish, then pass to next turn
+            setTimeout(() => {
+                game.turn++;
+                game.handleRound();
+                updateAllStats();
+            }, 1000)
+        } 
     }
 }

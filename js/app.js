@@ -1,13 +1,3 @@
-
-
-// grab our assets
-
-const IMAGE_ONE = document.querySelector('#player-one');
-const IMAGE_TWO = document.querySelector('#player-two');
-const IMAGE_PROJECTILE = document.querySelector('#projectile');
-const IMAGE_GOAL = document.querySelector('#goal');
-const IMAGE_BACKGROUND = document.querySelector('#background-image');
-
 // initialize our canvas context
 
 let canvas = document.getElementById("gameScreen");
@@ -26,9 +16,7 @@ new InputHandler();
 
 let game = new Game(GAME_WIDTH, GAME_HEIGHT, GAME_MARGIN);
 
-// create empty array to hold any active projectiles
-
-// const projectiles = [];
+updateAllStats();
 
 // start our game loop
 
