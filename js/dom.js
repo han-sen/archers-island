@@ -15,6 +15,7 @@ const IMAGE_TWO = document.querySelector('#player-two');
 const IMAGE_PROJECTILE = document.querySelector('#projectile');
 const IMAGE_GOAL = document.querySelector('#goal');
 const IMAGE_BACKGROUND = document.querySelector('#background-image');
+const IMAGE_TITLE_SCREEN = document.querySelector('#title-screen');
 
 // utility functions
 

@@ -11,7 +11,7 @@ const GAME_MARGIN = GAME_WIDTH * 0.05;
 const GAME_BG_COLOR = '#333f58';
 const GAME_TEXT_COLOR = '#FBBCAD';
 
-// initialize game object
+// initialize game object and stats
 
 const GAMESTATE = {
     MENU: 0,

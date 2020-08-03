@@ -1,6 +1,6 @@
 class Goal {
     constructor(gameWidth, gameHeight, gameMargin, image) {
-        this.size = 32;
+        this.size = 64;
         this.speed = { x: 40, y: 60 };
         this.gameWidth = gameWidth;
         this.gameHeight = gameHeight;
@@ -22,7 +22,7 @@ class Goal {
             // reverse Y direction
             this.speed.y = -this.speed.y;
         }
-        // check to see if we have hit edge of defined X-AXIS range (game margin * 3)
+        // check to see if we have hit edge of defined X-AXIS range (game margin * 6)
         if (this.position.x + this.size > this.gameMargin * 6 || this.position.x < this.gameMargin) {
             // reverse X direction
             this.speed.x = -this.speed.x;

@@ -19,11 +19,7 @@ class Game {
             messageHandler('win');
         } else {
             // draw only the current player
-            if (this.currentPlayer === this.playerOne) {
-                this.playerOne.draw(ctx);
-            } else if (this.currentPlayer === this.playerTwo) {
-                this.playerTwo.draw(ctx);
-            }
+            this.currentPlayer.draw(ctx);
             // draw the goal
             this.goal.draw(ctx);
             // draw every active projectile
@@ -39,10 +35,9 @@ class Game {
             || this.gamestate === GAMESTATE.MENU) {
             return;
         }
-        // update player positions
+        // update both player positions so they are at equal heights when swapped
         this.playerOne.update(deltaTime);
         this.playerTwo.update(deltaTime);
-
         // update the goal
         this.goal.update(deltaTime);
         // update projectiles & check collisions
@@ -71,10 +66,10 @@ class Game {
         }
     }
     checkWin(playerOne, playerTwo) {
-        // if at the end of a round, and one player has 3 or more points, and players are now tied
+        // if at the end of a round, and one player has 3 or more points, and players are not tied
         if ( (this.turn === this.round * 2 && this.playerTwo.ammo === 0) 
             && (playerOne >= 3 || playerTwo >= 3) 
-            && (playerOne !== playerTwo) ){
+            && (playerOne !== playerTwo) ) {
             setTimeout(() => {
                 this.gamestate = GAMESTATE.GAMEOVER;
             }, 1000)
