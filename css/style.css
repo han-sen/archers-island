@@ -7,6 +7,14 @@
     --accent-color: #ABD1BB;
     --neutral-color: #eee;
     --shadow-color: hsl(218 26% 54% / 1);
+    --shadow-full:  0 2.8px 2.2px rgba(0, 0, 0, 0.02),
+                    0 6.7px 5.3px rgba(0, 0, 0, 0.028),
+                    0 12.5px 10px rgba(0, 0, 0, 0.035),
+                    0 22.3px 17.9px rgba(0, 0, 0, 0.042),
+                    0 41.8px 33.4px rgba(0, 0, 0, 0.05),
+                    0 100px 80px rgba(0, 0, 0, 0.07);
+    --shadow-thin:  0 0.3px 10px -80px rgba(0, 0, 0, 0.035),
+                    0 2px 80px -80px rgba(0, 0, 0, 0.07);
 }
 
 body {
@@ -24,13 +32,7 @@ h1 {
 
 canvas {
     border: 2px solid var(--highlight-warm);
-    box-shadow:
-        0 2.8px 2.2px rgba(0, 0, 0, 0.02),
-        0 6.7px 5.3px rgba(0, 0, 0, 0.028),
-        0 12.5px 10px rgba(0, 0, 0, 0.035),
-        0 22.3px 17.9px rgba(0, 0, 0, 0.042),
-        0 41.8px 33.4px rgba(0, 0, 0, 0.05),
-        0 100px 80px rgba(0, 0, 0, 0.07);
+    box-shadow: var(--shadow-full);
     border-radius: 6px;
 }
 
@@ -72,14 +74,19 @@ img {
 }
 
 .flash {
-    animation: flash 2s infinite;
+    animation: flash 2s ease infinite;
 }
 
 @keyframes flash {
     25% {
-        transform: translateX(10px);
+        transform: translateX(1em);
+        background-color: hsl(218 26% 54% / 0.5);
     }
     50% {
-        border: 2px dashed var(--highlight-cool);
+        border: 2px dashed var(--accent-color);
+        box-shadow: var(--shadow-thin);
+    }
+    75% {
+        transform: translateX(-0.2em);
     }
 }

@@ -26,13 +26,13 @@ class Player {
         } 
     }
     shoot() {
-            if (this.ammo <= 0) { return };
+            if (this.ammo <= 0 || game.gamestate !== GAMESTATE.RUNNING) { return };
             // create new project and push to array
             let projectile = new Projectile( { x: this.position.x, y: this.position.y }, this.size, IMAGE_PROJECTILE );
             game.projectiles.push(projectile);
             this.ammo -= 1;
             this.checkRound();
-            updateStats(display_ammo, this.ammo);
+            updateAllStats();
     }
     checkRound () {
         if (this.ammo <= 0) {

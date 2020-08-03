@@ -9,8 +9,16 @@ const GAME_WIDTH = canvas.getAttribute('width');
 const GAME_HEIGHT = canvas.getAttribute('height');
 const GAME_MARGIN = GAME_WIDTH * 0.05;
 const GAME_BG_COLOR = '#333f58';
+const GAME_TEXT_COLOR = '#FBBCAD';
 
 // initialize game object
+
+const GAMESTATE = {
+    MENU: 0,
+    RUNNING: 1,
+    PAUSED: 2,
+    GAMEOVER: 3
+};
 
 let game = new Game(GAME_WIDTH, GAME_HEIGHT, GAME_MARGIN);
 

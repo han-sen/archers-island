@@ -41,6 +41,9 @@ document.addEventListener('keydown', event => {
         case 27:
             game.togglePause();    
             break;    
-        // add enter to start game
+        // enter to start game
+        case 13:
+            game.startGame();
+            break;
     }
 });
