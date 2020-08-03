@@ -20,25 +20,31 @@ class Game {
         this.projectiles = [];
     }
     draw(ctx) {
+        // draw only the current player
         if (this.currentPlayer === this.playerOne) {
             this.playerOne.draw(ctx);
         } else if (this.currentPlayer === this.playerTwo) {
             this.playerTwo.draw(ctx);
         }
+        // draw the goal
         this.goal.draw(ctx);
+        // draw every active projectile
         this.projectiles.forEach(el => {
             el.draw(ctx);
         });
     }
     update(deltaTime) {
+        // check for game state conditions
         if (this.gamestate === GAMESTATE.PAUSED || this.gamestate === GAMESTATE.GAMEOVER) {
             return;
         }
+        // update only the current player
         if (this.currentPlayer === this.playerOne) {
             this.playerOne.update(deltaTime);
         } else if (this.currentPlayer === this.playerTwo) {
             this.playerTwo.update(deltaTime);
         }
+        // update the goal
         this.goal.update(deltaTime);
         // update projectiles & check collisions
         this.projectiles.forEach((el, index) => {
@@ -55,6 +61,7 @@ class Game {
             el.update(deltaTime);
             el.draw(ctx);
         });
+        // check win
         this.checkWin();
     }
     togglePause() {
@@ -63,25 +70,28 @@ class Game {
         } else {
           this.gamestate = GAMESTATE.PAUSED;
         }
-        console.log(this.gamestate)
     }
     startGame() {
 
     }
     checkWin() {
         if (this.currentPlayer.score === 3) {
-            alert(`Player ${this.currentPlayer.playerNumber} has won the island!`)
+            alert(`Player ${this.currentPlayer.playerNumber} has won the island after ${this.round} rounds!`)
             this.gamestate = GAMESTATE.GAMEOVER;
         }
     }
     handleRound() {
+        // if turn # is odd, assign player 1, and vice versa
         if (this.turn % 2 !== 0) {
             this.currentPlayer = this.playerOne;
         } else {
             this.currentPlayer = this.playerTwo;
         }
+        // refill ammo
         this.currentPlayer.ammo = 3;
+        // calculate round 
         this.round = Math.ceil(this.turn / 2);
+        // update display board
         updateStats(display_player, this.currentPlayer.playerNumber);
     }
 }

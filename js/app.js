@@ -10,9 +10,7 @@ const GAME_HEIGHT = canvas.getAttribute('height');
 const GAME_MARGIN = GAME_WIDTH * 0.05;
 const GAME_BG_COLOR = '#333f58';
 
-// initialize game objects
-
-new InputHandler();
+// initialize game object
 
 let game = new Game(GAME_WIDTH, GAME_HEIGHT, GAME_MARGIN);
 

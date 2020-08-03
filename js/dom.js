@@ -1,4 +1,5 @@
 // dom elements
+
 const display_stats_wrap = document.querySelector('.game_stats_wrap');
 
 const display_player = document.querySelector('#display_player');
@@ -27,3 +28,19 @@ const updateAllStats = () => {
     updateStats(display_points, game.currentPlayer.score);
     updateStats(display_round, game.round);
 }
+
+// event handlers
+
+document.addEventListener('keydown', event => {
+    switch (event.keyCode) {
+        // spacebar to shoot
+        case 32:
+            game.currentPlayer.shoot();
+            break;
+        // esc to pause
+        case 27:
+            game.togglePause();    
+            break;    
+        // add enter to start game
+    }
+});
