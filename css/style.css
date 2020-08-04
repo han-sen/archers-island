@@ -3,6 +3,7 @@
 :root {
     --background-color: #333f58;
     --highlight-warm: #FBBCAD;
+    --highlight-warm-hover: hsl(12 91% 90% / 1);
     --highlight-cool: #ADECFB;
     --accent-color: #ABD1BB;
     --neutral-color: #eee;
@@ -24,10 +25,15 @@ body {
     color: white;
 }
 
+button:focus, button:active {
+    outline: 0;
+}
+
 h1 {
     text-align: center;
     color: var(--highlight-warm);
     font-size: 3em;
+    margin-top: 0;
 }
 
 canvas {
@@ -43,10 +49,6 @@ main {
     align-items: center;
 }
 
-img {
-    display: none;
-}
-
 .page_wrap {
     margin: 0;
     display: flex;
@@ -58,9 +60,11 @@ img {
 .game_stats_wrap {
     display: flex;
     justify-content: space-around;
+    min-width: 30em;
     border: 2px dashed var(--shadow-color);
     margin-bottom: 2em;
     border-radius: 6px;
+    align-self: center;
 }
 
 .game_stats_wrap p {
@@ -73,8 +77,36 @@ img {
     margin-left: 0.25em;
 }
 
+.controls_wrap {
+    margin: 1em;
+}
+
+.control_button {
+    border: none;
+    background: var(--highlight-warm);
+    color: var(--background-color);
+    box-shadow: var(--shadow-thin);
+    padding: 1em 2em;
+    border-radius: 3px;
+    min-width: 8em;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.control_button:hover {
+    background: var(--highlight-warm-hover);
+}
+
 .flash {
-    animation: flash 2s ease infinite;
+    animation: flash 2s ease;
+}
+
+.flash::after {
+    position: absolute;
+    top: 1em;
+    right: -5em;
+    content: 'switch!';
+    transform: rotate(-5deg);
 }
 
 @keyframes flash {
@@ -84,7 +116,7 @@ img {
     }
     50% {
         border: 2px dashed var(--accent-color);
-        box-shadow: var(--shadow-thin);
+        box-shadow: var(--shadow-full);
     }
     75% {
         transform: translateX(-0.2em);

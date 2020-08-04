@@ -1,6 +1,6 @@
-const messageHandler = (screen) => {
+const screenHandler = (screen) => {
 
-    let message = '';
+    let text = '';
 
     switch (screen) {
         case 'menu':
@@ -16,11 +16,12 @@ const messageHandler = (screen) => {
             ctx.textAlign = "center";
             let finalScore = `Player 1: ${game.playerOne.score}   |   Player 2: ${game.playerTwo.score}`;
             game.playerOne.score > game.playerTwo.score ? 
-                message = `Player ${game.playerOne.playerNumber} has won the island!` : 
-                message = `Player ${game.playerTwo.playerNumber} has won the island!`;
+                text = `Player ${game.playerOne.playerNumber} has won the island!` : 
+                text = `Player ${game.playerTwo.playerNumber} has won the island!`;
             ctx.fillText(finalScore, game.gameWidth / 2, game.gameHeight / 2 - 50);
             ctx.font = "30px Signika";
-            ctx.fillText(message, game.gameWidth / 2, game.gameHeight / 2);
+            ctx.fillText(text, game.gameWidth / 2, game.gameHeight / 2);
+            ctx.fillText('Press "Reset" to play again.', game.gameWidth /2, game.gameHeight / 2 + 200);
             break;
 
     }

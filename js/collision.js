@@ -1,8 +1,12 @@
 const detectCollision = (el, target) => {
-    if (el.position.x < target.position.x + target.size &&
-        el.position.x + el.size > target.position.x &&
-        el.position.y < target.position.y + target.size &&
-        el.position.y + el.size > target.position.y) {
+    if (el.position.x < target.position.x + target.width &&
+        el.position.x + el.width > target.position.x &&
+        el.position.y < target.position.y + target.height &&
+        el.position.y + el.height > target.position.y) {
+            // display_stats_wrap.classList.add('hit');
+            // setTimeout(() => {
+            //     display_stats_wrap.classList.remove('hit');
+            // }, 2000);
             return true;
     }
     return false;    

@@ -4,8 +4,8 @@ class Game {
         this.gameHeight = gameHeight;
         this.gameMargin = gameMargin;
         this.gamestate = GAMESTATE.MENU;
-        this.playerOne = new Player(gameWidth, gameHeight, gameMargin, 1, IMAGE_ONE);
-        this.playerTwo = new Player(gameWidth, gameHeight, gameMargin, 2, IMAGE_TWO);
+        this.playerOne = new Player(gameWidth, gameHeight, gameMargin, 'One', IMAGE_ONE);
+        this.playerTwo = new Player(gameWidth, gameHeight, gameMargin, 'Two', IMAGE_TWO);
         this.goal = new Goal(gameWidth, gameHeight, gameMargin, IMAGE_GOAL)
         this.turn = 1;
         this.round = 1;
@@ -14,9 +14,9 @@ class Game {
     }
     draw(ctx) {
         if (this.gamestate === GAMESTATE.MENU) {
-            messageHandler('menu');
+            screenHandler('menu');
         } else if (this.gamestate === GAMESTATE.GAMEOVER) {
-            messageHandler('win');
+            screenHandler('win');
         } else {
             // draw only the current player
             this.currentPlayer.draw(ctx);
@@ -53,7 +53,6 @@ class Game {
                 this.projectiles.splice(index, 1);
             }
             el.update(deltaTime);
-            el.draw(ctx);
         });
         // check win
         this.checkWin(this.playerOne.score, this.playerTwo.score);
