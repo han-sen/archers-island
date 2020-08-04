@@ -23,6 +23,9 @@ IMAGE_TWO.src = './assets/img/archer-2.png';
 const IMAGE_PROJECTILE = new Image();
 IMAGE_PROJECTILE.src = './assets/img/arrow-white.png';
 
+const IMAGE_OBSTACLE = new Image();
+IMAGE_OBSTACLE.src = './assets/img/snake.gif';
+
 const IMAGE_GOAL = new Image();
 IMAGE_GOAL.src = './assets/img/goal.png';
 
@@ -79,12 +82,15 @@ start_button.onclick = () => {
         game.startGame();
     }
 }
+
 fire_button.onclick = () => game.currentPlayer.shoot();
+
 pause_button.onclick = () =>  {
     if (game.gamestate !== GAMESTATE.GAMEOVER && game.gamestate !== GAMESTATE.MENU) {
         game.togglePause();
     }
 }
+
 reset_button.onclick = () => {
     location.reload();
     return false;

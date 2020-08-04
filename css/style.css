@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Signika:wght@400;700&display=swap');
 
+/***** GLOBAL STYLES *****/
+
 :root {
     --background-color: #333f58;
     --highlight-warm: #FBBCAD;
@@ -49,6 +51,8 @@ main {
     align-items: center;
 }
 
+/***** ELEMENT STYLES *****/
+
 .page_wrap {
     margin: 0;
     display: flex;
@@ -96,6 +100,27 @@ main {
 .control_button:hover {
     background: var(--highlight-warm-hover);
 }
+
+.github_wrap {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    border: 2px dashed var(--shadow-color);
+    padding: 2em;
+    border-bottom-left-radius: 50%;
+}
+
+.github_wrap a {
+    padding: 1em 0 0 0.5em;
+    color: var(--shadow-color);
+    font-size: 2em;
+}
+
+.github_wrap a:hover {
+    color: var(--highlight-warm);
+}
+
+/***** ANIMATIONS *****/
 
 .flash {
     animation: flash 2s ease;

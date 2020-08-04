@@ -1,16 +1,16 @@
 class Goal {
     constructor(gameWidth, gameHeight, gameMargin, image) {
-        this.width = 48;
-        this.height = 48;
-        this.speed = { x: 40, y: 80 };
         this.gameWidth = gameWidth;
         this.gameHeight = gameHeight;
         this.gameMargin = gameMargin;
+        this.image = image;
+        this.width = 48;
+        this.height = 48;
+        this.speed = { x: 40, y: 80 };
         this.position = {
             x: gameMargin,
             y: gameHeight / 2
         }
-        this.image = image;
     }
     draw(ctx) {
         ctx.drawImage(this.image, this.position.x, this.position.y, this.width, this.height); 

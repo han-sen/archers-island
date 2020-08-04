@@ -1,19 +1,19 @@
 class Player {
     constructor(gameWidth, gameHeight, gameMargin, playerNumber, image) {
-        this.width = 64;
-        this.height = 128;
-        this.speed = 50;
-        this.ammo = 3;
-        this.score = 0;
         this.gameWidth = gameWidth;
         this.gameHeight = gameHeight;
         this.gameMargin = gameMargin;
         this.playerNumber = playerNumber;
+        this.image = image;
+        this.width = 64;
+        this.height = 128;
+        this.speed = 40;
+        this.ammo = 3;
+        this.score = 0;
         this.position = {
             x: gameWidth - this.width - gameMargin * 2,
             y: gameHeight / 2
         }
-        this.image = image;
     }
     draw(ctx) {
         ctx.drawImage(this.image, this.position.x, this.position.y, this.width, this.height); 
@@ -42,8 +42,9 @@ class Player {
             setTimeout(() => {
                 display_stats_wrap.classList.remove('flash');
             }, 2000)
-            // slight delay to let any active projectiles finish, then pass to next turn
+            // slight delay to let any active projectiles finish, then reload & pass to next turn
             setTimeout(() => {
+                this.ammo = 3;
                 game.turn++;
                 game.handleRound();
                 updateAllStats();
