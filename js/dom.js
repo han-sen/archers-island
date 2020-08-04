@@ -24,7 +24,7 @@ const IMAGE_PROJECTILE = new Image();
 IMAGE_PROJECTILE.src = './assets/img/arrow-white.png';
 
 const IMAGE_GOAL = new Image();
-IMAGE_GOAL.src = './assets/img/goal-2.png';
+IMAGE_GOAL.src = './assets/img/goal.png';
 
 const IMAGE_BACKGROUND = new Image();
 IMAGE_BACKGROUND.src = './assets/img/bg-fixed.png';

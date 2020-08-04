@@ -3,10 +3,6 @@ const detectCollision = (el, target) => {
         el.position.x + el.width > target.position.x &&
         el.position.y < target.position.y + target.height &&
         el.position.y + el.height > target.position.y) {
-            // display_stats_wrap.classList.add('hit');
-            // setTimeout(() => {
-            //     display_stats_wrap.classList.remove('hit');
-            // }, 2000);
             return true;
     }
     return false;    
