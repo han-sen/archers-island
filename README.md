@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+![screenshot](https://i.imgur.com/ia0739D.png)
+
+>>>>>>> master
 # Archer's Island
 
 Live site: https://han-sen.github.io/archers-island/
@@ -12,4 +17,8 @@ Press SHOOT to fire an arrow, press START to begin.
 
 ## About this project
 
+<<<<<<< HEAD
 This game was built using Javascript and HTML Canvas to paint and move the sprites on screen.
+=======
+This game was built using Javascript and HTML Canvas to paint and move the sprites on screen.
+>>>>>>> master

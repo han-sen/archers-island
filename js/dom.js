@@ -2,9 +2,15 @@
 
 const display_stats_wrap = document.querySelector('.game_stats_wrap');
 
+<<<<<<< HEAD
 const display_player = document.querySelector('#display_player');
 const display_ammo = document.querySelector('#display_ammo');
 const display_points = document.querySelector('#display_points');
+=======
+const display_player_one = document.querySelector('#display_player_one');
+const display_player_two = document.querySelector('#display_player_two');
+const display_turn = document.querySelector('#display_turn');
+>>>>>>> master
 const display_round = document.querySelector('#display_round');
 
 const start_button = document.querySelector('#start_button');
@@ -42,6 +48,7 @@ const updateStats = (target, value) => {
 }
 
 const updateAllStats = () => {
+<<<<<<< HEAD
     updateStats(display_player, game.currentPlayer.playerNumber);
     // updateStats(display_ammo, game.currentPlayer.ammo);
     updateAmmo();
@@ -56,6 +63,14 @@ const updateAmmo = () => {
     }
 }
 
+=======
+    updateStats(display_player_one, `${game.playerOne.score}`);
+    updateStats(display_player_two, `${game.playerTwo.score}`);
+    updateStats(display_turn, game.turn);
+    updateStats(display_round, game.round);
+}
+
+>>>>>>> master
 // Event Handlers
 
 start_button.onclick = () => {
