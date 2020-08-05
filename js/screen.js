@@ -49,7 +49,8 @@ const screenHandler = (screen) => {
 
         // update any player HUD values
         case 'playing':
-            let ammo = ''
+            
+            let ammo = '';
             for (let i = 0; i < game.currentPlayer.ammo; i++) {
                 ammo += '↟';
             };
@@ -60,6 +61,7 @@ const screenHandler = (screen) => {
             }
             ctx.font = "60px Signika";
             ctx.fillText(ammo, game.gameWidth / 2 - 60, game.gameMargin * 1.5);
+
     }
 
 }
