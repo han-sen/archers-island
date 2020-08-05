@@ -29,10 +29,10 @@
                 </a>
             </div>
             <section class="game_stats_wrap">
-                <p>Player: <span id="display_player" class="stats_value">One</span></p>
-                <p>Ammo: <span id="display_ammo" class="stats_value">3</span></p>
+                <p>Player: <span id="display_player" class="stats_value"></span></p>
+                <p>Ammo: <span id="display_ammo" class="stats_value"></span></p>
                 <p>Points: <span id="display_points" class="stats_value"></span></p>
-                <p>Round: <span id="display_round" class="stats_value">1</span></p>
+                <p>Round: <span id="display_round" class="stats_value"></span></p>
             </section>
             <main>
                 <canvas id="gameScreen" width="900" height="506"></canvas>
@@ -41,10 +41,23 @@
                     <button id="fire_button" class="control_button"><i class="fas fa-crosshairs"></i> Fire</button>
                     <button id="pause_button" class="control_button"><i class="fas fa-pause-circle"></i> Pause</button>
                     <button id="reset_button" class="control_button"><i class="fas fa-power-off"></i> Reset</button>
+                    <button id="modal_button" class="control_button"><i class="fas fa-question-circle"></i> Info</button>
                 </section>
             </main>
-         </div>
+            <section class="modal_wrap">
+                <div class="modal_inner">
+                    <h3>How to Play</h3>
+                    <p>First player to 3 or more points wins the game, and gets the island!</p>
+                    <p>No ties, there can only be one winner, extra innings if needed.</p>
+                    <p>Get points by hitting the moving bullseye.</p>
+                    <p>Press <i class="fas fa-crosshairs"></i> fire to shoot an arrow.</p>
+                    <p>Watch out for jumping fish, they will block your arrows.</p>
+                    <button id="modal_close">Close</button>
+                </div>
+            </section>
+        </div>
         <!-- load our scripts -->
+        <script src="./js/modal.js" defer></script>
         <script src="./js/obstacle.js" defer></script>
         <script src="./js/projectile.js" defer></script>
         <script src="./js/collision.js" defer></script>

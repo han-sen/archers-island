@@ -58,25 +58,6 @@ const updateAmmo = () => {
 
 // Event Handlers
 
-document.addEventListener('keydown', event => {
-    switch (event.keyCode) {
-        // spacebar to shoot
-        case 32:
-            game.currentPlayer.shoot();
-            break;
-        // esc to pause
-        case 27:
-            game.togglePause();    
-            break;    
-        // enter to start game
-        case 13:
-            if (game.gamestate !== GAMESTATE.GAMEOVER) {
-                game.startGame();
-            }
-            break;
-    }
-});
-
 start_button.onclick = () => {
     if (game.gamestate !== GAMESTATE.GAMEOVER) {
         game.startGame();

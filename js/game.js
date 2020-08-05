@@ -75,14 +75,14 @@ class Game {
         });
 
         // check win
-        this.checkWin(this.playerOne.score, this.playerTwo.score);
+        this.checkWin();
     }
 
-    checkWin(playerOne, playerTwo) {
+    checkWin() {
         // if at the end of a round, and one player has 3 or more points, and players are not tied
-        if ( (this.turn === this.round * 2 && this.playerTwo.ammo === 0) 
-            && (playerOne >= 3 || playerTwo >= 3) 
-            && (playerOne !== playerTwo) ) {
+        if (this.playerTwo.ammo === 0 
+            && (this.playerOne.score >= 3 || this.playerTwo.score >= 3) 
+            && (this.playerOne.score !== this.playerTwo.score) ) {
             setTimeout(() => {
                 this.gamestate = GAMESTATE.GAMEOVER;
             }, 1000)

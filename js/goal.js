@@ -6,7 +6,7 @@ class Goal {
         this.image = image;
         this.width = 48;
         this.height = 48;
-        this.speed = { x: 40, y: 80 };
+        this.speed = { x: 40, y: 60 };
         this.position = {
             x: gameMargin,
             y: gameHeight / 2

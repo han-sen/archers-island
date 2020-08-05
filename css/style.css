@@ -31,6 +31,10 @@ button:focus, button:active {
     outline: 0;
 }
 
+button {
+    cursor: pointer;
+}
+
 h1 {
     text-align: center;
     color: var(--highlight-warm);
@@ -94,7 +98,6 @@ main {
     border-radius: 3px;
     min-width: 8em;
     font-weight: 700;
-    cursor: pointer;
 }
 
 .control_button:hover {
@@ -105,7 +108,8 @@ main {
     position: absolute;
     top: -2px;
     right: -2px;
-    border: 2px dashed var(--shadow-color);
+    border-left: 2px dashed var(--shadow-color);
+    border-bottom: 2px dashed var(--shadow-color);
     padding: 2em;
     border-bottom-left-radius: 50%;
 }
@@ -118,6 +122,43 @@ main {
 
 .github_wrap a:hover {
     color: var(--highlight-warm);
+}
+
+.modal_wrap {
+    display: none;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: rgb(51 63 88 / 50%);;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal_inner {
+    background: var(--highlight-warm);
+    color: var(--background-color);
+    padding: 2em;
+    max-width: 20em;
+    border-radius: 6px;
+}
+
+.modal_button {
+    background: transparent;
+    border: 2px dashed var(--shadow-color);
+    color: var(--shadow-color);
+    border-radius: 50%;
+    padding: 0.5em;
+    font-size: 1em;
+    align-self: flex-end;
+}
+
+#modal_close {
+    background: var(--background-color);
+    color: var(--highlight-warm);
+    border: none;
+    padding: 1em 2em;
+    border-radius: 3px;
+    font-weight: 700;
 }
 
 /***** ANIMATIONS *****/
