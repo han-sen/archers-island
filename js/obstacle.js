@@ -4,8 +4,8 @@ class Obstacle {
         this.gameHeight = gameHeight;
         this.gameMargin = gameMargin;
         this.image = image;
-        this.width = 48;
-        this.height = 48;
+        this.width = 32;
+        this.height = 32;
         this.speed = 60;
         this.position = { 
             x: this.gameWidth / 2 - this.width, 

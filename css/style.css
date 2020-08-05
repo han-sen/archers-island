@@ -152,6 +152,10 @@ main {
     align-self: flex-end;
 }
 
+#modal_button {
+    background: var(--shadow-color);
+}
+
 #modal_close {
     background: var(--background-color);
     color: var(--highlight-warm);

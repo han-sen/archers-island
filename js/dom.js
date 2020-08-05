@@ -15,25 +15,25 @@ const reset_button = document.querySelector('#reset_button');
 // Page Assets
 
 const IMAGE_ONE = new Image();
-IMAGE_ONE.src = './assets/img/archer-1.png';
+IMAGE_ONE.src = './img/archer-1.png';
 
 const IMAGE_TWO = new Image();
-IMAGE_TWO.src = './assets/img/archer-2.png';
+IMAGE_TWO.src = './img/archer-2.png';
 
 const IMAGE_PROJECTILE = new Image();
-IMAGE_PROJECTILE.src = './assets/img/arrow-white.png';
+IMAGE_PROJECTILE.src = './img/arrow-white.png';
 
 const IMAGE_OBSTACLE = new Image();
-IMAGE_OBSTACLE.src = './assets/img/snake.gif';
+IMAGE_OBSTACLE.src = './img/crab-2.png';
 
 const IMAGE_GOAL = new Image();
-IMAGE_GOAL.src = './assets/img/goal.png';
+IMAGE_GOAL.src = './img/goal.png';
 
 const IMAGE_BACKGROUND = new Image();
-IMAGE_BACKGROUND.src = './assets/img/bg-fixed.png';
+IMAGE_BACKGROUND.src = './img/bg-fixed.png';
 
 const IMAGE_TITLE_SCREEN = new Image();
-IMAGE_TITLE_SCREEN.src = './assets/img/title-screen.png';
+IMAGE_TITLE_SCREEN.src = './img/title-screen.png';
 
 // Utility Functions
 
