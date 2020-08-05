@@ -27,28 +27,33 @@ class Player {
         }
     }
     shoot() {
-            if (this.ammo <= 0 || game.gamestate !== GAMESTATE.RUNNING) { return };
-            // create new projectile and push to array
-            let projectile = new Projectile( { x: this.position.x, y: this.position.y + 30}, this.height, IMAGE_PROJECTILE );
-            game.projectiles.push(projectile);
-            this.ammo -= 1;
-            this.checkRound();
-            updateAllStats();
+        if (this.ammo <= 0 || game.gamestate !== GAMESTATE.RUNNING) { 
+            return; 
+        };
+        // create new projectile and push to array
+        let projectile = new Projectile( { x: this.position.x, y: this.position.y + 30}, this.height, IMAGE_PROJECTILE );
+        game.projectiles.push(projectile);
+        this.ammo -= 1;
+        updateAllStats();
+        this.checkRound();
     }
     checkRound () {
         if (this.ammo <= 0) {
-            // add flash to stats wrap then remove
             display_stats_wrap.classList.add('flash');
-            setTimeout(() => {
-                display_stats_wrap.classList.remove('flash');
-            }, 2000)
-            // slight delay to let any active projectiles finish, then reload & pass to next turn
-            setTimeout(() => {
-                this.ammo = 3;
-                game.turn++;
-                game.handleRound();
-                updateAllStats();
-            }, 1000)
+            if (!game.checkWin()) { 
+                // slight delay to let any active projectiles finish, then reload & pass to next turn
+                setTimeout(() => {
+                    game.turn++;
+                    this.ammo = 3;
+                    game.handleRound();
+                    updateAllStats();
+                }, 1000);
+                setTimeout(() => {
+                    display_stats_wrap.classList.remove('flash');
+                }, 2000);
+            } else {
+                return;
+            }           
         }
     }
 }
