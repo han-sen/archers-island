@@ -96,7 +96,7 @@ main {
     box-shadow: var(--shadow-thin);
     padding: 1em 2em;
     border-radius: 3px;
-    min-width: 8em;
+    /* min-width: 8em; */
     font-weight: 700;
 }
 

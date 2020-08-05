@@ -16,9 +16,12 @@ class Game {
     draw(ctx) {
         if (this.gamestate === GAMESTATE.MENU) {
             screenHandler('menu');
+            return;
         } else if (this.gamestate === GAMESTATE.GAMEOVER) {
             screenHandler('win');
+            return;
         } else {
+            screenHandler('playing');
             // draw only the current player
             this.currentPlayer.draw(ctx);
             // draw the goal
@@ -55,7 +58,7 @@ class Game {
             if (detectCollision(el, this.goal)) {
                 this.projectiles.splice(index, 1);
                 this.currentPlayer.score += 1;
-                updateStats(display_points, this.currentPlayer.score);
+                updateAllStats();
             };
             // check collision with obstacles, if true remove arrow and obstacle
             if (this.obstacle) {
@@ -98,7 +101,7 @@ class Game {
         // calculate current round 
         this.round = Math.ceil(this.turn / 2);
         // update display board
-        updateStats(display_player, this.currentPlayer.playerNumber);
+        updateAllStats();
     }
     togglePause() {
         if (this.gamestate == GAMESTATE.PAUSED) {
