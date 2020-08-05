@@ -2,11 +2,8 @@
 
 let canvas = document.getElementById("gameScreen");
 let ctx = canvas.getContext("2d");
-<<<<<<< HEAD
-=======
 ctx.imageSmoothingEnabled = false;
 
->>>>>>> master
 
 // set our game screen variables
 
@@ -15,11 +12,8 @@ const GAME_HEIGHT = canvas.getAttribute('height');
 const GAME_MARGIN = GAME_WIDTH * 0.05;
 const GAME_BG_COLOR = '#333f58';
 const GAME_TEXT_COLOR = '#FBBCAD';
-<<<<<<< HEAD
-=======
 const GAME_PLAYER_ONE_COLOR = '#ABD1BB';
 const GAME_PLAYER_TWO_COLOR = '#ADECFB';
->>>>>>> master
 
 // initialize game object and stats
 

@@ -19,11 +19,7 @@ class Obstacle {
     update(deltaTime) {
         this.position.y += this.speed / deltaTime;
         // check to see if we have hit edge of game area
-<<<<<<< HEAD
-        if (this.position.y + this.height > this.gameHeight || this.position.y < this.gameMargin * 2) {
-=======
         if (this.position.y + this.height > this.gameHeight || this.position.y < this.gameMargin * 4) {
->>>>>>> master
             // reverse direction by setting speed to inverse of itself
             this.speed = -this.speed;
         }
