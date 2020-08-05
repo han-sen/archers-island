@@ -14,6 +14,13 @@ const screenHandler = (screen) => {
             ctx.fillStyle = GAME_BG_COLOR;
             ctx.fill();
 
+            // add player image
+            if (game.playerOne.score > game.playerTwo.score) {
+                ctx.drawImage(IMAGE_ONE, game.gameWidth / 2 - game.playerOne.width / 2, game.gameMargin, game.playerOne.width, game.playerOne.height);
+            } else {
+                ctx.drawImage(IMAGE_TWO, game.gameWidth / 2 - game.playerTwo.width / 2, game.gameMargin, game.playerTwo.width, game.playerTwo.height);               
+            }
+
             // align all text o center
             ctx.textAlign = "center";
 
@@ -22,7 +29,9 @@ const screenHandler = (screen) => {
             ctx.font = "20px Signika";
             ctx.fillStyle = GAME_TEXT_COLOR;
             ctx.fillText(finalScore, game.gameWidth / 2, game.gameHeight / 2 - 50);
-            // pick winner color
+
+            // pick winner & color
+            ctx.font = "25px Signika";
             if (game.playerOne.score > game.playerTwo.score) {
                 ctx.fillStyle = GAME_PLAYER_ONE_COLOR;
                 text = `Player ${game.playerOne.playerNumber} has won the island!`; 
