@@ -57,6 +57,10 @@ class Game {
             // check collision with goal, if true remove this projectile & increment score
             if (detectCollision(el, this.goal)) {
                 this.projectiles.splice(index, 1);
+                this.goal.image.src = './img/goal-hit.png';
+                setInterval(() => {
+                    this.goal.image.src = './img/goal.png';
+                }, 1000);
                 this.currentPlayer.score += 1;
                 updateAllStats();
             };

@@ -22,8 +22,6 @@ const screenHandler = (screen) => {
             ctx.font = "20px Signika";
             ctx.fillStyle = GAME_TEXT_COLOR;
             ctx.fillText(finalScore, game.gameWidth / 2, game.gameHeight / 2 - 50);
-            console.log(finalScore);
-
             // pick winner color
             if (game.playerOne.score > game.playerTwo.score) {
                 ctx.fillStyle = GAME_PLAYER_ONE_COLOR;

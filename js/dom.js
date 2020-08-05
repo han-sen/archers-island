@@ -21,7 +21,7 @@ const IMAGE_TWO = new Image();
 IMAGE_TWO.src = './img/archer-2.png';
 
 const IMAGE_PROJECTILE = new Image();
-IMAGE_PROJECTILE.src = './img/arrow-white.png';
+IMAGE_PROJECTILE.src = './img/arrow.png';
 
 const IMAGE_OBSTACLE = new Image();
 IMAGE_OBSTACLE.src = './img/crab-2.png';
