@@ -1,3 +1,5 @@
+![screenshot](https://i.imgur.com/ia0739D.png)
+
 # Archer's Island
 
 Live site: https://han-sen.github.io/archers-island/
