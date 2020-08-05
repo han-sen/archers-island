@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@400;700&display=swap');
+
+/***** GLOBAL STYLES *****/
+
+:root {
+    --background-color: #333f58;
+    --highlight-warm: #FBBCAD;
+    --highlight-warm-hover: hsl(12 91% 90% / 1);
+    --highlight-cool: #ADECFB;
+    --accent-color: #ABD1BB;
+    --neutral-color: #eee;
+    --shadow-color: hsl(218 26% 54% / 1);
+    --shadow-full:  0 2.8px 2.2px rgba(0, 0, 0, 0.02),
+                    0 6.7px 5.3px rgba(0, 0, 0, 0.028),
+                    0 12.5px 10px rgba(0, 0, 0, 0.035),
+                    0 22.3px 17.9px rgba(0, 0, 0, 0.042),
+                    0 41.8px 33.4px rgba(0, 0, 0, 0.05),
+                    0 100px 80px rgba(0, 0, 0, 0.07);
+    --shadow-thin:  0 0.3px 10px -80px rgba(0, 0, 0, 0.035),
+                    0 2px 80px -80px rgba(0, 0, 0, 0.07);
+}
+
+body {
+    margin: 0;
+    background: var(--background-color);
+    font-family: 'Signika', sans-serif;
+    color: white;
+}
+
+button:focus, button:active {
+    outline: 0;
+}
+
+button {
+    cursor: pointer;
+}
+
+h1 {
+    text-align: center;
+    color: var(--highlight-warm);
+    font-size: 3em;
+    margin-top: 0;
+}
+
+canvas {
+    border: 2px solid var(--highlight-warm);
+    box-shadow: var(--shadow-full);
+    border-radius: 6px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/***** ELEMENT STYLES *****/
+
+.page_wrap {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+}
+
+.game_stats_wrap {
+    display: flex;
+    justify-content: space-around;
+    min-width: 30em;
+    border: 2px dashed var(--shadow-color);
+    margin-bottom: 2em;
+    border-radius: 6px;
+    align-self: center;
+}
+
+.game_stats_wrap p {
+    margin: 1em 1.5em;
+    color: var(--accent-color);
+}
+
+.stats_value {
+    color: var(--highlight-cool);
+    margin-left: 0.25em;
+}
+
+.controls_wrap {
+    margin: 1em;
+}
+
+.control_button {
+    border: none;
+    background: var(--highlight-warm);
+    color: var(--background-color);
+    box-shadow: var(--shadow-thin);
+    padding: 1em 2em;
+    border-radius: 3px;
+    min-width: 8em;
+    font-weight: 700;
+}
+
+.control_button:hover {
+    background: var(--highlight-warm-hover);
+}
+
+.github_wrap {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    border-left: 2px dashed var(--shadow-color);
+    border-bottom: 2px dashed var(--shadow-color);
+    padding: 2em;
+    border-bottom-left-radius: 50%;
+}
+
+.github_wrap a {
+    padding: 1em 0 0 0.5em;
+    color: var(--shadow-color);
+    font-size: 2em;
+}
+
+.github_wrap a:hover {
+    color: var(--highlight-warm);
+}
+
+.modal_wrap {
+    display: none;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: rgb(51 63 88 / 50%);;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal_inner {
+    background: var(--highlight-warm);
+    color: var(--background-color);
+    padding: 2em;
+    max-width: 20em;
+    border-radius: 6px;
+}
+
+.modal_button {
+    background: transparent;
+    border: 2px dashed var(--shadow-color);
+    color: var(--shadow-color);
+    border-radius: 50%;
+    padding: 0.5em;
+    font-size: 1em;
+    align-self: flex-end;
+}
+
+#modal_button {
+    background: hsl(218 26% 63% / 1);;
+}
+
+#modal_button:hover {
+    background: hsl(218 26% 74% / 1);
+}
+
+#modal_close {
+    background: var(--background-color);
+    color: var(--highlight-warm);
+    border: none;
+    padding: 1em 2em;
+    border-radius: 3px;
+    font-weight: 700;
+}
+
+/***** ANIMATIONS *****/
+
+.flash {
+    animation: flash 2s ease;
+}
+
+.flash::after {
+    position: absolute;
+    top: 1em;
+    right: -5em;
+    content: 'switch!';
+    transform: rotate(-5deg);
+}
+
+@keyframes flash {
+    25% {
+        transform: translateX(1em);
+        background-color: hsl(218 26% 54% / 0.5);
+    }
+    50% {
+        border: 2px dashed var(--accent-color);
+        box-shadow: var(--shadow-full);
+    }
+    75% {
+        transform: translateX(-0.2em);
+    }
+}
