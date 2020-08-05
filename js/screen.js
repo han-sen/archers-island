@@ -4,7 +4,7 @@ const screenHandler = (screen) => {
 
     switch (screen) {
         case 'menu':
-            ctx.drawImage(IMAGE_TITLE_SCREEN, 0, 0, GAME_WIDTH, GAME_HEIGHT);
+            ctx.drawImage(IMAGE_TITLE_SCREEN, 0, 0, GAME_WIDTH - GAME_MARGIN, GAME_HEIGHT - GAME_MARGIN);
             break;
 
         case 'win':

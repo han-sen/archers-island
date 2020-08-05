@@ -153,7 +153,11 @@ main {
 }
 
 #modal_button {
-    background: var(--shadow-color);
+    background: hsl(218 26% 63% / 1);;
+}
+
+#modal_button:hover {
+    background: hsl(218 26% 74% / 1);
 }
 
 #modal_close {
