@@ -9,7 +9,7 @@ class Obstacle {
         this.speed = 60;
         this.position = { 
             x: this.gameWidth / 2 - this.width, 
-            y: this.gameHeight - this.height
+            y: this.gameHeight - this.gameMargin
         };
         this.active = true;
     }
