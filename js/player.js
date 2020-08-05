@@ -38,22 +38,20 @@ class Player {
         this.checkRound();
     }
     checkRound () {
-        if (this.ammo <= 0) {
+        if (this.ammo === 0) {
             display_stats_wrap.classList.add('flash');
-            if (!game.checkWin()) { 
-                // slight delay to let any active projectiles finish, then reload & pass to next turn
-                setTimeout(() => {
-                    game.turn++;
-                    this.ammo = 3;
-                    game.handleRound();
-                    updateAllStats();
-                }, 1000);
-                setTimeout(() => {
-                    display_stats_wrap.classList.remove('flash');
-                }, 2000);
-            } else {
-                return;
-            }           
-        }
+            // slight delay to let any active projectiles finish, then reload & pass to next turn
+            setTimeout(() => {
+                game.turn++;
+                game.handleRound();
+                this.ammo = 3;
+                updateAllStats();
+            }, 1000);
+            setTimeout(() => {
+                display_stats_wrap.classList.remove('flash');
+            }, 2000);
+        } else {
+            return;
+        }           
     }
 }
