@@ -1,6 +1,6 @@
 # Archer's Island
 
-Live site: (https://han-sen.github.io/archers-island/)[https://han-sen.github.io/archers-island/]
+Live site: https://han-sen.github.io/archers-island/
 
 After a cataclysmic polar shift, the continents were ripped apart, making solid land a rare commodity…
 
