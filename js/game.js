@@ -80,19 +80,17 @@ class Game {
             }
             el.update(deltaTime);
         });
-
         // check win
-        this.checkWin();
     }
-
     checkWin() {
         // if at the end of a round, and one player has 3 or more points, and players are not tied
-        if (this.playerTwo.ammo === 0 
-            && (this.playerOne.score >= 3 || this.playerTwo.score >= 3) 
-            && (this.playerOne.score !== this.playerTwo.score) ) {
+        if ((this.playerOne.score >= 3 || this.playerTwo.score >= 3) && this.playerOne.score != this.playerTwo.score && this.playerTwo.ammo === 0) {
+            console.log(this.playerOne.score, this.playerTwo.score);
             setTimeout(() => {
                 this.gamestate = GAMESTATE.GAMEOVER;
-            }, 1000)
+            }, 1000);
+        } else {
+            return false;
         }
     }
     handleRound() {
