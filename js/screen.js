@@ -50,6 +50,7 @@ const screenHandler = (screen) => {
         // update any player HUD values
         case 'playing':
             
+            // display an arrow for each one left in the player's color
             let ammo = '';
             for (let i = 0; i < game.currentPlayer.ammo; i++) {
                 ammo += '↟';
@@ -59,9 +60,24 @@ const screenHandler = (screen) => {
             } else {
                 ctx.fillStyle = GAME_PLAYER_TWO_COLOR;
             }
+            ctx.textAlign = "center";
             ctx.font = "60px Signika";
-            ctx.fillText(ammo, game.gameWidth / 2 - 60, game.gameMargin * 1.5);
+            ctx.fillText(ammo, game.gameWidth / 2, game.gameMargin * 1.5);
 
+            // if player 2 must score to win, display a message at the bottom
+            if (game.currentPlayer == game.playerTwo 
+                && game.playerOne.score >= 3 
+                && game.playerOne.score > game.playerTwo.score) {
+                    // construct the message
+                    let difference = game.playerOne.score - game.playerTwo.score;
+                    let message = `Need at least ${difference} ${difference === 1 ? 'point' : 'points'}!`;
+                    
+                    ctx.fillStyle = GAME_TEXT_COLOR;
+                    ctx.font = "20px Signika";
+                    ctx.textAlign = "center";
+                    ctx.fillText(message, game.gameWidth / 2, game.gameMargin * 2);
+            }
+            break;
     }
 
 }
