@@ -15,6 +15,7 @@ class Projectile {
     }
     update(deltaTime) {
         this.position.x -= this.speed.x / deltaTime;
+        
         // slight downward drag to imitate gravity
         this.position.y += this.speed.y / deltaTime
     }

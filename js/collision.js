@@ -1,3 +1,4 @@
+// collision detection function
 const detectCollision = (el, target) => {
     if (el.position.x < target.position.x + target.width &&
         el.position.x + el.width > target.position.x &&
