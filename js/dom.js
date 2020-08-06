@@ -42,8 +42,8 @@ const updateStats = (target, value) => {
 }
 
 const updateAllStats = () => {
-    updateStats(display_player_one, `${game.playerOne.score}`);
-    updateStats(display_player_two, `${game.playerTwo.score}`);
+    updateStats(display_player_one, game.playerOne.score);
+    updateStats(display_player_two, game.playerTwo.score);
     updateStats(display_turn, game.turn);
     updateStats(display_round, game.round);
 }

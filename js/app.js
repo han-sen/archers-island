@@ -34,8 +34,9 @@ let lastTime = 0;
 
 const gameLoop = (timeStamp) => {
 
-    // calculate change in time each frame
-    // this allows us to sync frame rate to users buffer rate
+    // requestAnimationFrame returns a time stamp on each call
+    // use this to calculate change in time each between each frame
+    // this allows us to sync frame rate to users refresh rate
     let deltaTime = timeStamp - lastTime;
     lastTime = timeStamp;
 
@@ -49,6 +50,7 @@ const gameLoop = (timeStamp) => {
     game.update(deltaTime);
     game.draw(ctx);
 
+    // request the next frame
     requestAnimationFrame(gameLoop);
 
 }

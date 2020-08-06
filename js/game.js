@@ -22,19 +22,24 @@ class Game {
             return;
         } else {
             screenHandler('playing');
+
             // draw only the current player
             this.currentPlayer.draw(ctx);
+
             // draw the goal
             this.goal.draw(ctx);
+
             // draw our obstacle if it is active
             if (this.obstacle) {
                 this.obstacle.draw(ctx);
             }
+            
             // draw every active projectile
             this.projectiles.forEach(el => {
                 el.draw(ctx);
             });
         }
+
     }
     update(deltaTime) {
         // check if game state !== RUNNING
@@ -43,17 +48,22 @@ class Game {
             || this.gamestate === GAMESTATE.MENU) {
             return;
         }
+
         // update both player positions so they are at equal heights when swapped
         this.playerOne.update(deltaTime);
         this.playerTwo.update(deltaTime);
+
         // update the goal
         this.goal.update(deltaTime);
+
         // update our obstacle if it is active
         if (this.obstacle) {
             this.obstacle.update(deltaTime);
         }
+
         // update projectiles & check collisions
         this.projectiles.forEach((el, index) => {
+
             // check collision with goal, if true remove this projectile & increment score
             if (detectCollision(el, this.goal)) {
                 this.projectiles.splice(index, 1);
@@ -64,6 +74,7 @@ class Game {
                 this.currentPlayer.score += 1;
                 updateAllStats();
             };
+
             // check collision with obstacles, if true remove arrow and obstacle
             if (this.obstacle) {
                 if (detectCollision(el, this.obstacle)) {
@@ -74,19 +85,22 @@ class Game {
                     }, 5000)
                 }
             }
+
             // remove from projectiles array once off-screen
             if (el.position.x < 0) {
                 this.projectiles.splice(index, 1);
             }
+
             el.update(deltaTime);
         });
+
         // check win
         this.checkWin();
+
     }
     checkWin() {
         // if at the end of a round, and one player has 3 or more points, and players are not tied
         if (this.playerTwo.ammo === 0 && (this.playerOne.score >= 3 || this.playerTwo.score >= 3) && this.playerOne.score != this.playerTwo.score) {
-            console.log(this.playerOne.score, this.playerTwo.score);
             setTimeout(() => {
                 this.gamestate = GAMESTATE.GAMEOVER;
             }, 1000);
@@ -101,8 +115,10 @@ class Game {
         } else {
             this.currentPlayer = this.playerTwo;
         }
+
         // calculate current round 
         this.round = Math.ceil(this.turn / 2);
+        
         // update display board
         updateAllStats();
     }
