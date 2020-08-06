@@ -65,6 +65,12 @@ pause_button.onclick = () =>  {
 }
 
 reset_button.onclick = () => {
-    location.reload();
-    return false;
+    // revert to original values
+    game.gamestate = GAMESTATE.MENU;
+    game.playerOne.score = 0;
+    game.playerTwo.score = 0;
+    game.turn = 1;
+    game.round = 1;
+    game.currentPlayer = game.playerOne;
+    updateAllStats();
 }

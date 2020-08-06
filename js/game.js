@@ -99,11 +99,13 @@ class Game {
 
     }
     checkWin() {
-        // if at the end of a round, and one player has 3 or more points, and players are not tied
-        if (this.playerTwo.ammo === 0 && (this.playerOne.score >= 3 || this.playerTwo.score >= 3) && this.playerOne.score != this.playerTwo.score) {
-            setTimeout(() => {
+        // if at the end of a round & one player has 3 or more points & all arrows have finished & and players are not tied
+        if (this.playerTwo.ammo === 0 
+            && this.playerOne.score != this.playerTwo.score
+            && this.projectiles.length === 0
+            && (this.playerOne.score >= 3 || this.playerTwo.score >= 3)) {
+                console.log(`Final Score - Player 1: ${this.playerOne.score}, Player 2: ${this.playerTwo.score}`);
                 this.gamestate = GAMESTATE.GAMEOVER;
-            }, 1000);
         } else {
             return false;
         }
