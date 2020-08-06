@@ -68,6 +68,7 @@ const screenHandler = (screen) => {
             if (game.currentPlayer == game.playerTwo 
                 && game.playerOne.score >= 3 
                 && game.playerOne.score > game.playerTwo.score) {
+
                     // construct the message
                     let difference = game.playerOne.score - game.playerTwo.score;
                     let message = `Need at least ${difference} ${difference === 1 ? 'point' : 'points'}!`;
@@ -75,7 +76,7 @@ const screenHandler = (screen) => {
                     ctx.fillStyle = GAME_TEXT_COLOR;
                     ctx.font = "20px Signika";
                     ctx.textAlign = "center";
-                    ctx.fillText(message, game.gameWidth / 2, game.gameMargin * 2);
+                    ctx.fillText(message, game.gameWidth / 2, game.gameMargin * 3);
             }
             break;
     }
