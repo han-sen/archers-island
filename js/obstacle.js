@@ -1,9 +1,9 @@
 class Obstacle {
-    constructor(gameWidth, gameHeight, gameMargin, image) {
+    constructor(gameWidth, gameHeight, gameMargin) {
         this.gameWidth = gameWidth;
         this.gameHeight = gameHeight;
         this.gameMargin = gameMargin;
-        this.image = image;
+        this.image = randomFish();
         this.width = 32;
         this.height = 32;
         this.speed = 60;

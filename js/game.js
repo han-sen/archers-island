@@ -11,7 +11,7 @@ class Game {
         this.round = 1;
         this.currentPlayer = this.playerOne;
         this.projectiles = [];
-        this.obstacle = new Obstacle(this.gameWidth, this.gameHeight, this.gameMargin, IMAGE_OBSTACLE);
+        this.obstacle = new Obstacle(this.gameWidth, this.gameHeight, this.gameMargin);
     }
     draw(ctx) {
         if (this.gamestate === GAMESTATE.MENU) {
@@ -81,7 +81,7 @@ class Game {
                     this.projectiles.splice(index, 1);
                     this.obstacle = null;
                     setTimeout(() => {
-                        this.obstacle = new Obstacle(this.gameWidth, this.gameHeight, this.gameMargin, IMAGE_OBSTACLE);
+                        this.obstacle = new Obstacle(this.gameWidth, this.gameHeight, this.gameMargin);
                     }, 5000)
                 }
             }

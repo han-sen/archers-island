@@ -23,8 +23,11 @@ IMAGE_TWO.src = './img/archer-2.png';
 const IMAGE_PROJECTILE = new Image();
 IMAGE_PROJECTILE.src = './img/arrow.png';
 
-const IMAGE_OBSTACLE = new Image();
-IMAGE_OBSTACLE.src = './img/crab-2.png';
+const IMAGE_FISH_1 = new Image();
+IMAGE_FISH_1.src = './img/crab-2.png';
+
+const IMAGE_FISH_2 = new Image();
+IMAGE_FISH_2.src = './img/fish-2.png';
 
 const IMAGE_GOAL = new Image();
 IMAGE_GOAL.src = './img/goal.png';
@@ -48,6 +51,12 @@ const updateAllStats = () => {
     updateStats(display_round, game.round);
 }
 
+const fishArr = [IMAGE_FISH_1, IMAGE_FISH_2];
+
+const randomFish = () => {
+    return fishArr[Math.floor(Math.random() * fishArr.length)];
+}
+
 // Event Handlers
 
 start_button.onclick = () => {
@@ -68,6 +77,8 @@ reset_button.onclick = () => {
     // revert to original values
     game.gamestate = GAMESTATE.MENU;
     game.playerOne.score = 0;
+    game.playerOne.ammo = 3;
+    game.playerTwo.ammo = 3;
     game.playerTwo.score = 0;
     game.turn = 1;
     game.round = 1;
